@@ -11,6 +11,7 @@ vim:
 	ln -s ${PWD}/.vimrc ${HOME}/.vimrc
 	mkdir ${HOME}/.vim/swap
 	mkdir ${HOME}/.vim/backup
+	mkdir ${HOME}/.vim/dict
 
 deinvim:
 	bash ./etc/init/install_deinvim.sh

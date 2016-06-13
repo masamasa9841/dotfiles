@@ -12,7 +12,7 @@ git clone https://github.com/tiryoh/dotfiles.git
 * backup original vim settings
 
 ```
-mkdir $HOME/vimorg && mv $HOME/.vimrc $HOME/vimorg
+mkdir $HOME/vimorg && mv $HOME/.vimrc $HOME/vimorg/ && mv $HOME/.vim $HOME/vimorg/
 ```
 
 * move to `dotfiles` dir and install `dein.vim`
