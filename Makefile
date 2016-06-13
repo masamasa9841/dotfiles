@@ -4,7 +4,7 @@ all:
 
 
 prezto:
-	./etc/init/install_prezto.sh
+	bash ./etc/init/install_prezto.sh
 
 vim:
 	ln -s ${PWD}/.vim ${HOME}/
@@ -13,4 +13,7 @@ vim:
 	mkdir ${HOME}/.vim/backup
 
 deinvim:
-	./etc/init/install_deinvim.sh
+	bash ./etc/init/install_deinvim.sh
+
+tmux:
+	ln -s ${PWD}/.tmux.conf ${HOME}/.tmux.conf
