@@ -26,6 +26,7 @@ call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
 " completion
+call dein#add('jiangmiao/auto-pairs')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -55,7 +56,7 @@ let g:neocomplcache_dictionary_filetype_lists = {
 \}
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+  let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 " For cursor moving in insert mode(Not recommended)
@@ -126,8 +127,20 @@ call dein#add('Shougo/vimproc.vim', {
 \    },
 \ })
 call dein#add('Shougo/vimshell', {'depends' : 'Shougo/vimproc.vim'})
-"call dein#add('modsound/gips-vim.git')
-"let g:gips_reading_txt = s:plugin_dir . '/repos/github.com/modsound/gips-vim/autoload/dict/quickref_vim.txt'
+
+" comment
+call dein#add('tomtom/tcomment_vim')
+
+" indent
+call dein#add('nathanaelkane/vim-indent-guides')
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_auto_colors = 0 
+let g:indent_guides_guide_size = 1
+augroup IndentGuidesColors
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+augroup END
 
 " ruby
 call dein#add('tpope/vim-rails', {'on_ft' : 'ruby'})
@@ -141,9 +154,12 @@ call dein#add('kannokanno/previm', {'on_ft' : ['markdown', 'md']})
 call dein#add('w0ng/vim-hybrid')
 call dein#add('tomasr/molokai')
 call dein#add('nanotech/jellybeans.vim')
-call dein#end()
 
-filetype plugin indent on
+" others
+"call dein#add('modsound/gips-vim.git')
+"let g:gips_reading_txt = s:plugin_dir . '/repos/github.com/modsound/gips-vim/autoload/dict/quickref_vim.txt'
+
+call dein#end()
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()

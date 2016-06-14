@@ -1,15 +1,42 @@
+" run 'call dein#clear_state()' to force reload
+
+" global settings
 syntax on
-set nocompatible
+set nocompatible title number cindent
 set backspace=2
 set clipboard+=unnamedplus,unnamed
-set title
-set number
 set laststatus=2
 set cmdheight=2
-silent! colorscheme jellybeans
+
+" colorscheme settings
+"silent! colorscheme jellybeans
+colorscheme default
+
+" dein.vim
+if filereadable(expand('~/dotfiles/.vimrc.dein'))
+  source ~/dotfiles/.vimrc.dein
+endif
+
+" indent
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+function! s:toggle_indent()
+  if &tabstop == 2
+    setlocal shiftwidth=4
+    setlocal tabstop=4
+    setlocal softtabstop=4
+  else
+    setlocal shiftwidth=2
+    setlocal tabstop=2
+    setlocal softtabstop=2
+  endif
+endfunction
+nnoremap <silent> <Space>ot :<C-u>call <SID>toggle_indent()<CR>
 
 " keybind
-function! MY_CR_FUNC()
+function! s:my_cr_func()
     let presentchar = getline(".")[col(".")-1]
     let prevchar = getline(".")[col(".")-2]
     if presentchar == "}" && prevchar == "{"
@@ -19,11 +46,8 @@ function! MY_CR_FUNC()
     endif
 endfunction
 inoremap <silent> jj <ESC>
-inoremap ( ()<LEFT>
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
-imap <expr><CR> pumvisible() ? neocomplcache#close_popup() : MY_CR_FUNC()
+imap <expr><CR> pumvisible() ? neocomplcache#close_popup() : <SID>my_cr_func()
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -68,9 +92,4 @@ else
   set directory=$HOME/.vim/swap
 endif
 set updatecount=500
-
-" dein.vim
-if filereadable(expand('~/dotfiles/.vimrc.dein'))
-  source ~/dotfiles/.vimrc.dein
-endif
 
