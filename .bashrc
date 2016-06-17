@@ -118,7 +118,7 @@ source /opt/ros/indigo/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
 alias rosreload="source ${HOME}/catkin_ws/devel/setup.bash"
-alias catkin_make="(cd ${HOME}/catkin_ws && catkin_make)"
+alias catkin_make="(cd ${HOME}/catkin_ws && catkin_make) && source ${HOME}/catkin_ws/devel/setup.bash"
 
 #export ROS_MASTER_URI=http://192.168.22.200:11311
 
