@@ -118,9 +118,9 @@ source /opt/ros/indigo/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
 alias rosreload="source ${HOME}/catkin_ws/devel/setup.bash"
-alias catkin_make="cd ${HOME}/catkin_ws && catkin_make"
+alias catkin_make="(cd ${HOME}/catkin_ws && catkin_make)"
 
-export ROS_MASTER_URI=http://192.168.22.200:11311
+#export ROS_MASTER_URI=http://192.168.22.200:11311
 
 function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
