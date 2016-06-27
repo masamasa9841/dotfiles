@@ -144,7 +144,7 @@ augroup END
 
 " ruby
 call dein#add('tpope/vim-rails', {'on_ft' : 'ruby'})
-call dein#add('vim-ruby/vim-ruby', {'on-ft' : 'ruby'})
+call dein#add('vim-ruby/vim-ruby', {'on_ft' : 'ruby'})
 
 " markdown
 call dein#add('godlygeek/tabular', {'on_ft' : ['markdown', 'md']})
