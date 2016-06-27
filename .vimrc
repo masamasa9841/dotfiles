@@ -10,12 +10,47 @@ set cmdheight=2
 
 " colorscheme settings
 "silent! colorscheme jellybeans
-colorscheme default
+colorscheme elflord
 
 " dein.vim
-if filereadable(expand('~/dotfiles/.vimrc.dein'))
-  source ~/dotfiles/.vimrc.dein
+if &compatible
+  set nocompatible               " Be iMproved
 endif
+
+let g:dein#install_max_processes = 48
+augroup PluginInstall
+  autocmd!
+  autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+augroup END
+command! -nargs=0 PluginUpdate call dein#update()
+
+let s:dein_dir = expand('~/.vim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+execute 'set runtimepath+=' . s:dein_repo_dir
+
+if !isdirectory(s:dein_repo_dir)
+  call mkdir(s:dein_repo_dir, 'p')
+  silent execute printf('!git clone %s %s', 'https://github.com/Shougo/dein.vim', s:dein_repo_dir)
+endif
+
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
+
 
 " indent
 filetype plugin indent on
