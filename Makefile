@@ -1,4 +1,4 @@
-.PHONY: prezto vim deinvim bash prezto
+.PHONY: all prezto vim dockervim deinvim bash tmux
 
 all:
 
@@ -12,6 +12,8 @@ vim:
 	mkdir ${HOME}/.vim/swap
 	mkdir ${HOME}/.vim/backup
 	mkdir ${HOME}/.vim/dict
+
+dockervim:vim
 	/bin/bash -c 'vim -c ":silent call dein#install() | :q"'
 
 deinvim:
