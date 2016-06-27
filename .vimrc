@@ -47,11 +47,6 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-if dein#check_install()
-  call dein#install()
-endif
-
-
 " indent
 filetype plugin indent on
 set tabstop=4
