@@ -12,7 +12,7 @@ vim:
 	mkdir ${HOME}/.vim/swap
 	mkdir ${HOME}/.vim/backup
 	mkdir ${HOME}/.vim/dict
-	/bin/bash 'vim + ":call dein#install()" + :q'
+	/bin/bash -c 'vim + ":call dein#install()" + :q'
 
 deinvim:
 	/bin/bash ./etc/init/install_deinvim.sh
