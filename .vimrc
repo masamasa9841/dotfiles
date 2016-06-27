@@ -46,7 +46,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   let g:neosnippet#enable_snipmate_compatibility = 1
-  let g:neosnippet#snippets_directory= s:dein_repo_dir . '/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
+  let g:neosnippet#snippets_directory= s:dein_dir . '/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
   call dein#add('Shougo/neocomplcache.vim')
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
