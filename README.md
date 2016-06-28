@@ -2,9 +2,9 @@ dotfiles
 ========
 my dotfiles
 
-[![license](https://img.shields.io/github/license/tiryoh/dotfiles.svg?maxAge=2592000)]()
-[![GitHub issues](https://img.shields.io/github/issues/tiryoh/dotfiles.svg?maxAge=2592000)]()
-[![Travis](https://img.shields.io/travis/tiryoh/dotfiles.svg?maxAge=2592000)]()
+[![license](https://img.shields.io/github/license/tiryoh/dotfiles.svg?maxAge=2592000)](./LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/tiryoh/dotfiles.svg?maxAge=2592000)](https://github.com/Tiryoh/dotfiles/issues)
+[![Travis](https://img.shields.io/travis/tiryoh/dotfiles.svg?maxAge=2592000)](https://travis-ci.org/Tiryoh/dotfiles)
 
 ##Table of Contents
 
@@ -49,4 +49,5 @@ done!!!
 ## License
 
 dotfiles are licensed under the MIT license.
-Copywrite (c) 2016 Tiryoh
+
+Copyright (c) 2016 Tiryoh
