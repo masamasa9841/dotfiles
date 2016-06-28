@@ -1,36 +1,10 @@
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-let g:dein#install_max_processes = 48
-augroup PluginInstall
-  autocmd!
-  autocmd VimEnter * if dein#check_install() | call dein#install() | endif
-augroup END
-command! -nargs=0 PluginUpdate call dein#update()
-
-let s:plugin_dir = expand('~/.vim/dein')
-let s:dein_dir = s:plugin_dir . '/repos/github.com/Shougo/dein.vim'
-execute 'set runtimepath+=' . s:dein_dir
-
-if !isdirectory(s:dein_dir)
-  call mkdir(s:dein_dir, 'p')
-  silent execute printf('!git clone %s %s', 'https://github.com/Shougo/dein.vim', s:dein_dir)
-endif
-
-call dein#begin(s:plugin_dir)
-
-" Let dein manage dein
-call dein#add('Shougo/dein.vim')
-
 " Add or remove your plugins here:
 " completion
 call dein#add('jiangmiao/auto-pairs')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory= s:dein_dir . '/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
+let g:neosnippet#snippets_directory= g:dein_dir . '/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
 
 call dein#add('Shougo/neocomplcache.vim')
 " Disable AutoComplPop.
@@ -116,17 +90,9 @@ xnoremap \r :<C-U>cclose<CR>:write<CR>gv:QuickRun -mode v<CR>
 call dein#add('Shougo/unite.vim')
 call dein#add('ujihisa/unite-colorscheme', {'depends' : 'Shougo/unite.vim'})
 
-"vimproc
-call dein#add('Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ })
-call dein#add('Shougo/vimshell', {'depends' : 'Shougo/vimproc.vim'})
+" vimproc
+"call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+"call dein#add('Shougo/vimshell', {'depends' : 'Shougo/vimproc.vim'})
 
 " comment
 call dein#add('tomtom/tcomment_vim')
@@ -142,18 +108,10 @@ augroup IndentGuidesColors
   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 augroup END
 
-" ruby
-call dein#add('tpope/vim-rails', {'on_ft' : 'ruby'})
-call dein#add('vim-ruby/vim-ruby', {'on_ft' : 'ruby'})
-
-" markdown
-call dein#add('godlygeek/tabular', {'on_ft' : ['markdown', 'md']})
-call dein#add('kannokanno/previm', {'on_ft' : ['markdown', 'md']})
-
-"colorscheme
-call dein#add('w0ng/vim-hybrid')
-call dein#add('tomasr/molokai')
-call dein#add('nanotech/jellybeans.vim')
+" colorscheme
+"call dein#add('w0ng/vim-hybrid')
+"call dein#add('tomasr/molokai')
+"call dein#add('nanotech/jellybeans.vim')
 
 " others
 "call dein#add('modsound/gips-vim.git')
@@ -162,8 +120,17 @@ call dein#add('nanotech/jellybeans.vim')
 call dein#end()
 
 " If you want to install not installed plugins on startup.
-if dein#check_install()
+if dein#check_install() 
   call dein#install()
 endif
+
+let g:dein#install_max_processes = 48
+
+"augroup PluginInstall
+"  autocmd!
+"  autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+"augroup END
+"command! -nargs=0 PluginUpdate call dein#update()
+
 
 "End dein Scripts-------------------------
