@@ -117,20 +117,3 @@ augroup END
 "call dein#add('modsound/gips-vim.git')
 "let g:gips_reading_txt = s:plugin_dir . '/repos/github.com/modsound/gips-vim/autoload/dict/quickref_vim.txt'
 
-call dein#end()
-
-" If you want to install not installed plugins on startup.
-if dein#check_install() 
-  call dein#install()
-endif
-
-let g:dein#install_max_processes = 48
-
-"augroup PluginInstall
-"  autocmd!
-"  autocmd VimEnter * if dein#check_install() | call dein#install() | endif
-"augroup END
-"command! -nargs=0 PluginUpdate call dein#update()
-
-
-"End dein Scripts-------------------------
