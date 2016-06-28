@@ -1,4 +1,4 @@
-.PHONY: prezto vim deinvim bash prezto
+.PHONY: all prezto vim deinvim bash tmux git
 
 all:
 
@@ -21,3 +21,6 @@ bash:
 
 tmux:
 	ln -s ${PWD}/.tmux.conf ${HOME}/.tmux.conf
+
+git:
+	ln -s ${PWD}/.gitconfig ${HOME}/.gitconfig
