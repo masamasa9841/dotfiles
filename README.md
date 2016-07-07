@@ -16,38 +16,90 @@ my dotfiles
 
 requires the following to run:
 
-* Vim 7.4
+  * Vim
+    * make
+    * curl
+    * Vim 7.4 (+clipboard +lua)
+  * bash
+    * make
+    * bash
+  * tmux
+    * make
+    * tmux
+  * git
+    * make
+    * git
 
 ## Usage
+### Vim
 
-* git clone
+* git clone scripts
 
 ```
 git clone https://github.com/tiryoh/dotfiles.git
 ```
 
-* backup original vim settings
+* archive original settings
+  * vim
+  
+  ```
+  mkdir $HOME/vimorg && mv $HOME/.vimrc $HOME/vimorg/ && mv $HOME/.vim $HOME/vimorg/
+  ```
+  
+  * bash
+  
+  ```
+  mv $HOME/.bashrc $HOME/.bashrc_org
+  ```
+
+  * tmux
+  
+  ```
+  mv $HOME/.tmux.conf $HOME/.tmux.conf_org
+  ```
+
+* move to `dotfiles` dir and install new settings
 
 ```
-mkdir $HOME/vimorg && mv $HOME/.vimrc $HOME/vimorg/ && mv $HOME/.vim $HOME/vimorg/
+cd $HOME/dotfiles
 ```
 
-* move to `dotfiles` dir and install `dein.vim`
+  * vim
+    * install `dein.vim`
 
-```
-cd $HOME/dotfiles && make deinvim
-```
+    ```
+    make deinvim
+    ```
 
-* install new vim settings
+    * install new vim settings
 
-```
-make vim
-```
+    ```
+    make vim
+    ```
+  * bash
+    * install new bashrc
+
+    ```
+    make bash
+    ```
+
+  * tmux
+    * install new tmux.conf
+
+    ```
+    make tmux
+    ```
+
+  * git
+  Don't forget to change user.email and user.name.
 
 done!!!
 
 ## License
 
-dotfiles are licensed under the MIT license.
+dotfiles are licensed under the MIT license, see [LICENSE](./LICENSE).
 
-Copyright (c) 2016 Tiryoh
+Unless attributed otherwise, everything is under the MIT licence.
+
+Copyright (c) 2016 [Tiryoh](https://github.com/Tiryoh)
+
