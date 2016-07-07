@@ -114,8 +114,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source /opt/ros/indigo/setup.bash
-source ~/catkin_ws/devel/setup.bash
+if [ -f /opt/ros/indigo/setup.bash ]; then
+    source /opt/ros/indigo/setup.bash
+fi
+if [ -f ~/catkin_ws/devel/setup.bash ]; then
+    source ~/catkin_ws/devel/setup.bash
+fi
 
 alias rosreload="source ${HOME}/catkin_ws/devel/setup.bash"
 alias catkin_make="(cd ${HOME}/catkin_ws && catkin_make) && source ${HOME}/catkin_ws/devel/setup.bash"
