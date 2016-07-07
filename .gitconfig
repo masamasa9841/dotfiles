@@ -8,5 +8,6 @@
 	default = matching
 [alias]
 	tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
-
+[commit]
+	template = ${HOME}/dotfiles/.git_commit_template
 
