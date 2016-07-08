@@ -4,7 +4,7 @@ all:
 
 
 prezto:
-	bash ./etc/init/install_prezto.sh
+	/bin/zsh ./etc/init/install_prezto.sh
 
 vim:
 	ln -s ${PWD}/.vim ${HOME}/
