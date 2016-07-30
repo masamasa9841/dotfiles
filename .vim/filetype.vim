@@ -7,4 +7,5 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.cc setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd BufRead,BufNewFile *.cpp setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
   autocmd BufRead,BufNewFile *.ino setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufRead,BufNewFile *.tex setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 augroup END
