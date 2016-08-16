@@ -114,18 +114,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -f /opt/ros/indigo/setup.bash ]; then
-    source /opt/ros/indigo/setup.bash
-fi
-if [ -f ~/catkin_ws/devel/setup.bash ]; then
-    source ~/catkin_ws/devel/setup.bash
-fi
-
-alias rosreload="source ${HOME}/catkin_ws/devel/setup.bash"
-alias catkin_make="(cd ${HOME}/catkin_ws && catkin_make) && source ${HOME}/catkin_ws/devel/setup.bash"
-
-#export ROS_MASTER_URI=http://192.168.22.200:11311
-
+# git settings
 function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
 }
@@ -144,3 +133,27 @@ function promps {
     PS1="${TITLEBAR}${GREEN}${BASE}${WHITE}:${BLUE}\w${GREEN}\$(parse_git_branch)${BLUE}\n\$${WHITE} "
 }
 promps
+
+# ROS settings
+if [ -f /opt/ros/indigo/setup.bash ]; then
+    source /opt/ros/indigo/setup.bash
+fi
+if [ -f ~/catkin_ws/devel/setup.bash ]; then
+    source ~/catkin_ws/devel/setup.bash
+fi
+
+alias rosreload="source ${HOME}/catkin_ws/devel/setup.bash"
+alias catkin_make="(cd ${HOME}/catkin_ws && catkin_make) && source ${HOME}/catkin_ws/devel/setup.bash"
+alias dockerros="docker run -it --rm --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" tiryoh/ros-indigo-desktop:bash"
+
+export MYWLAN0IP=`ifconfig wlan0 | grep -o -E "([0-9]+.){3}\.([0-9]+.){2}" | head -n1 | sed -e 's/ //g' `
+export MYETH0IP=`ifconfig eth0 | grep -o -E "([0-9]+.){3}\.([0-9]+.){2}" | head -n1 | sed -e 's/ //g' `
+export ROS_IP=$MYWLAN0IP
+export ROS_MASTER_URI=http://$MYWLAN0IP:11311
+if [ -z "$MYWLAN0IP" ]; then
+  export ROS_MASTER_URI=http://127.0.0.1:11311
+  export ROS_IP=127.0.0.1
+fi
+#export ROS_MASTER_URI=http://192.168.22.200:11311
+export GAZEBO_MODEL_PATH=$HOME/catkin_ws/src/
+
