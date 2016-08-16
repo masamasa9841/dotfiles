@@ -10,6 +10,7 @@ my dotfiles
 
 * Requirements
 * Usage
+* Vim Shortcuts
 * License
 
 ## Requirements
@@ -94,6 +95,13 @@ cd $HOME/dotfiles
   Don't forget to change user.email and user.name.
 
 done!!!
+
+## Vim Shortcuts
+
+e.g.)
+* jj   [esc] 
+* gcc  comment/comment out
+* :Q   quick run
 
 ## License
 
