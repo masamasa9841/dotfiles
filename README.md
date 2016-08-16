@@ -99,9 +99,42 @@ done!!!
 ## Vim Shortcuts
 
 e.g.)
-* jj   [esc] 
-* gcc  comment/comment out
-* :Q   quick run
+* [esc]
+  * jj
+* comment/comment out
+  * gcc
+* quick run
+  * :Q
+
+## tmux Shortcuts
+
+* prefix key
+  * Ctrl-a
+* Open new window
+  * prefix + c
+* View window list
+  * prefix + w
+* Select next/previous window
+  * prefix + n
+  * prefix + p
+  * prefix + Ctrl-l
+  * prefix + Ctrl-h
+* Move panes
+  * prefix + {
+  * prefix + }
+  * prefix + Ctrl-o
+* Select pane
+  * prefix + l
+  * prefix + k
+  * prefix + j
+  * prefix + h
+* Resize pane
+  * prefix + L
+  * prefix + K
+  * prefix + J
+  * prefix + H
+* Reload config
+  * prefix + r
 
 ## License
 
