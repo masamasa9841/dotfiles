@@ -140,7 +140,7 @@ e.g.)
 
 dotfiles are licensed under the MIT license, see [LICENSE](./LICENSE).
 
-Unless attributed otherwise, everything is under the MIT licence.
+Unless attributed otherwise, everything is under the MIT license.
 
 Copyright (c) 2016 [Tiryoh](https://github.com/Tiryoh)
 
