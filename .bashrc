@@ -114,6 +114,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# clip board settings
+
+alias pbcopy="xsel --clipboard --input"
+alias pbpaste="xsel --clipboard --output"
+
 # git settings
 function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'

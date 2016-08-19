@@ -109,7 +109,7 @@ e.g.)
 ## tmux Shortcuts
 
 * prefix key
-  * Ctrl-a
+  * Ctrl-b
 * Open new window
   * prefix + c
 * View window list
