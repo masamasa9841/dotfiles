@@ -13,4 +13,5 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile *.launch setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufRead,BufNewFile *.xml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd BufRead,BufNewFile *.md setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd BufRead,BufNewFile *.yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
