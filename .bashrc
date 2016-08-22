@@ -147,18 +147,16 @@ if [ -f ~/catkin_ws/devel/setup.bash ]; then
     source ~/catkin_ws/devel/setup.bash
 fi
 
-alias rosreload="source ${HOME}/catkin_ws/devel/setup.bash"
-alias catkin_make="(cd ${HOME}/catkin_ws && catkin_make) && source ${HOME}/catkin_ws/devel/setup.bash"
+alias rosreload="source $HOME/catkin_ws/devel/setup.bash"
 alias dockerros="docker run -it --rm --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" tiryoh/ros-indigo-desktop:bash"
 
-export MYWLAN0IP=`ifconfig wlan0 | grep -o -E "([0-9]+.){3}\.([0-9]+.){2}" | head -n1 | sed -e 's/ //g' `
-export MYETH0IP=`ifconfig eth0 | grep -o -E "([0-9]+.){3}\.([0-9]+.){2}" | head -n1 | sed -e 's/ //g' `
-export ROS_IP=$MYWLAN0IP
-export ROS_MASTER_URI=http://$MYWLAN0IP:11311
-if [ -z "$MYWLAN0IP" ]; then
-  export ROS_MASTER_URI=http://127.0.0.1:11311
-  export ROS_IP=127.0.0.1
-fi
+# alias catkin_make="(cd $HOME/catkin_ws && catkin_make) && source $HOME/catkin_ws/devel/setup.bash"
+function catkin_make(){(cd $HOME/catkin_ws && command catkin_make $@) && source $HOME/catkin_ws/devel/setup.bash;}
+
+export MYWLAN0IP=`ifconfig wlan0 2>/dev/null | grep -o -E "([0-9]+.){3}\.([0-9]+.){2}" | head -n1 | sed -e 's/ //g'`
+export MYETH0IP=`ifconfig eth0 2>/dev/null | grep -o -E "([0-9]+.){3}\.([0-9]+.){2}" | head -n1 | sed -e 's/ //g'`
+export ROS_IP=$(echo $MYETH0IP $MYWLAN0IP 127.0.0.1 | cut -d' ' -f1)
+export ROS_MASTER_URI=http://$ROS_IP:11311
 #export ROS_MASTER_URI=http://192.168.22.200:11311
 export GAZEBO_MODEL_PATH=$HOME/catkin_ws/src/
 
