@@ -48,12 +48,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -150,13 +150,8 @@ fi
 alias rosreload="source $HOME/catkin_ws/devel/setup.bash"
 alias dockerros="docker run -it --rm --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" tiryoh/ros-indigo-desktop:bash"
 
-# alias catkin_make="(cd $HOME/catkin_ws && catkin_make) && source $HOME/catkin_ws/devel/setup.bash"
-function catkin_make(){(cd $HOME/catkin_ws && command catkin_make $@) && source $HOME/catkin_ws/devel/setup.bash;}
-
-export MYWLAN0IP=`ifconfig wlan0 2>/dev/null | grep -o -E "([0-9]+.){3}\.([0-9]+.){2}" | head -n1 | sed -e 's/ //g'`
-export MYETH0IP=`ifconfig eth0 2>/dev/null | grep -o -E "([0-9]+.){3}\.([0-9]+.){2}" | head -n1 | sed -e 's/ //g'`
-export ROS_IP=$(echo $MYETH0IP $MYWLAN0IP 127.0.0.1 | cut -d' ' -f1)
-export ROS_MASTER_URI=http://$ROS_IP:11311
-#export ROS_MASTER_URI=http://192.168.22.200:11311
-export GAZEBO_MODEL_PATH=$HOME/catkin_ws/src/
+if [ ! "$BASH_PROFILE_LOADED" ]; then
+    # echo "bash_profile loaded."
+    source ~/.bash_profile
+fi
 
