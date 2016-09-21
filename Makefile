@@ -13,6 +13,11 @@ vim:
 	mkdir ${HOME}/.vim/backup
 	mkdir ${HOME}/.vim/dict
 
+vim-setup_for_docker:deinvim vim
+	/bin/bash -c 'mv .vim/rc/plugin/90-check_install.vim .vim/rc/plugin/90-check_install.vim.back'
+	/bin/bash -c 'vim -c ":silent! call dein#install() | :q"'
+	/bin/bash -c 'mv .vim/rc/plugin/90-check_install.vim.back .vim/rc/plugin/90-check_install.vim'
+
 deinvim:
 	/bin/bash ./etc/init/install_deinvim.sh
 
