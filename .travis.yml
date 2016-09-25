@@ -1,8 +1,5 @@
 dist: trusty
 
-env:
-    - HOME=$HOME/Tiryoh
-
 addons:
     apt:
         packages:
@@ -12,18 +9,9 @@ addons:
         - curl
         - wget
 
-install:
-    - ( if [ ! -d $HOME/vim-7.4.2367/bin  ]; then git clone https://github.com/vim/vim /tmp/vim && cd /tmp/vim && git checkout v7.4.2367 && ./configure --prefix=$HOME/vim-7.4.2367 && make && make install; fi  )
-    - export THEMIS_VIM=$HOME/vim-7.4.2367/bin/vim
-
-cache:
-    directories:
-        - $HOME/vim-7.4.2367
-
 before_script:
     - cat /etc/lsb-release | awk -F= '{if($1=="DISTRIB_CODENAME") print $2}'
     - vim --version
-    - $HOME/vim-7.4.2367/bin/vim --version
     - cd $HOME && git clone https://github.com/Tiryoh/dotfiles.git && cd dotfiles && git checkout -b dev/autobuild origin/dev/autobuild
 
 script:
