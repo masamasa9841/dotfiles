@@ -16,6 +16,19 @@ if [ -x ~/catkin_ws ]; then
     export GAZEBO_MODEL_PATH=~/catkin_ws/src/
 fi
 
+if [ -x ~/.nodebrew  ]; then
+    export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
+
+if [ -x ~/usr/local/bin  ]; then
+    export PATH=$HOME/usr/local/bin:$PATH
+fi
+
+if [ -x ~/usr/local/go  ]; then
+    export GOPATH=$HOME/usr/local/go
+    export PATH=$GOPATH/bin:$PATH
+fi
+
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
