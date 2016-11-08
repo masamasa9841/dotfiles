@@ -1,0 +1,2 @@
+#!/bin/bash
+cd $(tmux display-message -p -F "#{pane_current_path}") && echo "[ $(git config --get user.name)<$(git config --get user.email)>]"
