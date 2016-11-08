@@ -1,0 +1,2 @@
+#!/bin/bash
+cd $(tmux display-message -p -F "#{pane_current_path}") && [ ! -z $(git branch | grep \*.* | sed -e 's/\*\ //')  ] && echo "[$(git branch | grep \*.* | sed -e 's/\*\ //')]"
