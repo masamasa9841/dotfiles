@@ -1,3 +1,6 @@
-#!/bin/bash
-if [ -a ${HOME}/.bashrc ]; then mv ${HOME}/.bashrc ${HOME}/.bashrc.bak; fi;
-if [ -a ${HOME}/.bash_profile ]; then mv ${HOME}/.bash_profile ${HOME}/.bash_profile.bak; fi;
+#!/bin/bash -eu
+BACKUPDIR=${HOME}/.backup/$(date +%Y%m%d_%H-%M-%S)
+mkdir -p ${BACKUPDIR}
+if [ -a ${HOME}/.inputrc ]; then mv ${HOME}/.inputrc ${BACKUPDIR}/.inputrc.bak; fi;
+if [ -a ${HOME}/.bashrc ]; then mv ${HOME}/.bashrc ${BACKUPDIR}/.bashrc.bak; fi;
+if [ -a ${HOME}/.bash_profile ]; then mv ${HOME}/.bash_profile ${BACKUPDIR}/.bash_profile.bak; fi;

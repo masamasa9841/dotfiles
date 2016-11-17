@@ -23,6 +23,7 @@ deinvim:
 
 bash:
 	/bin/bash ./etc/init/backup_bash.sh
+	ln -s ${PWD}/.inputrc ${HOME}/.inputrc
 	ln -s ${PWD}/.bashrc ${HOME}/.bashrc
 	ln -s ${PWD}/.bash_profile ${HOME}/.bash_profile
 
