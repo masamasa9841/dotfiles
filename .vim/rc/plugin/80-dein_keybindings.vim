@@ -10,14 +10,15 @@ function! s:my_cr_func()
 endfunction
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+imap <expr><TAB> pumvisible() ? "\<C-n>"
+\: neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
+\: "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: "\<TAB>"
 imap <expr><CR> pumvisible() ? neocomplcache#close_popup() : <SID>my_cr_func()
-xmap <C-k> <Plug>(neosnippet_expand_target)  
+xmap <C-k> <Plug>(neosnippet_expand_target)
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
