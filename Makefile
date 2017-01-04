@@ -1,4 +1,4 @@
-.PHONY: all prezto vim vim-setup_for_docker deinvim bash tmux git pyenv
+.PHONY: all prezto vim vim-setup_for_docker deinvim bash tmux git pyenv zsh_completion
 
 all:
 
@@ -35,4 +35,7 @@ git:
 
 pyenv:
 	git clone https://github.com/yyuu/pyenv.git ${HOME}/.pyenv
+
+zsh_completion:
+	/bin/bash ./etc/init/install_zsh_completion.sh
 
