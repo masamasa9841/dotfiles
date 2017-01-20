@@ -7,6 +7,7 @@ prezto:
 	/bin/zsh ./etc/init/install_prezto.sh
 
 vim:
+	/bin/bash ./etc/init/backup_vim.sh
 	ln -s ${PWD}/.vim ${HOME}/
 	ln -s ${PWD}/.vimrc ${HOME}/.vimrc
 	mkdir ${HOME}/.vim/swap
