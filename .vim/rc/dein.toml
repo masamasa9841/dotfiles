@@ -28,6 +28,9 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
 # ruby
 [[plugins]]
 repo = 'tpope/vim-rails'
