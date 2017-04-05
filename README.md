@@ -1,12 +1,12 @@
-dotfiles
-========
+# dotfiles
+
 my dotfiles
 
 [![license](https://img.shields.io/github/license/tiryoh/dotfiles.svg?maxAge=2592000)](./LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/tiryoh/dotfiles.svg?maxAge=2592000)](https://github.com/Tiryoh/dotfiles/issues)
 [![Travis](https://travis-ci.org/Tiryoh/dotfiles.svg?branch=dev%2Fautobuild)](https://travis-ci.org/Tiryoh/dotfiles)
 
-##Table of Contents
+## Table of Contents
 
 * Requirements
 * Usage
@@ -138,9 +138,9 @@ e.g.)
 
 ## License
 
-dotfiles are licensed under the MIT license, see [LICENSE](./LICENSE).
+This repository is licensed under the MIT license, see [LICENSE](./LICENSE).
 
 Unless attributed otherwise, everything is under the MIT license.
 
-Copyright (c) 2016 [Tiryoh](https://github.com/Tiryoh)
+Copyright (c) 2016-2017 [Tiryoh](https://github.com/Tiryoh)
 
