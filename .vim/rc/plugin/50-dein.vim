@@ -117,3 +117,12 @@ augroup END
 "call dein#add('modsound/gips-vim.git')
 "let g:gips_reading_txt = s:plugin_dir . '/repos/github.com/modsound/gips-vim/autoload/dict/quickref_vim.txt'
 
+
+
+" html
+call dein#add('mattn/emmet-vim')
+call dein#add('mattn/webapi-vim')
+call dein#add('tell-k/vim-browsereload-mac')
+call dein#add('hail2u/vim-css3-syntax')
+call dein#add('taichouchou2/html5.vim')
+call dein#add('kchmck/vim-coffee-script')
