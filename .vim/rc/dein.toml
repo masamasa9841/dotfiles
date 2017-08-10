@@ -58,3 +58,20 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'stephpy/vim-yaml'
 on_ft = ['yaml', 'yml']
+
+# html
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'html']
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+on_source = ['unite.vim', 'vimshell.vim']
+
+[[plugins]]
+repo = 'Shougo/vimshell.vim'
+on_map = {n = '<Plug>'}
+on_if = "!has('nvim')"
+hook_add = 'nmap [Space]s  <Plug>(vimshell_switch)'
+hook_source = 'source ~/.vim/rc/plugin/vimshell.rc.vim'

@@ -50,7 +50,7 @@ endif
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html,javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Enable heavy omni completion.
@@ -91,11 +91,18 @@ call dein#add('Shougo/unite.vim')
 call dein#add('ujihisa/unite-colorscheme', {'depends' : 'Shougo/unite.vim'})
 
 " vimproc
-"call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-"call dein#add('Shougo/vimshell', {'depends' : 'Shougo/vimproc.vim'})
+" call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+" call dein#add('Shougo/vimshell', {'depends' : 'Shougo/vimproc.vim'})
+
+augroup my-vimshell
+	autocmd!
+	autocmd FileType vimshell
+\       imap <expr> <buffer> <C-n> pumvisible() ? "\<C-n>" : "\<Plug>(vimshell_history_neocomplete)"
+augroup END
 
 " comment
-call dein#add('tomtom/tcomment_vim')
+"call dein#add('tomtom/tcomment_vim')
+call dein#add('tyru/caw.vim')
 
 " indent
 call dein#add('nathanaelkane/vim-indent-guides')
@@ -116,13 +123,3 @@ augroup END
 " others
 "call dein#add('modsound/gips-vim.git')
 "let g:gips_reading_txt = s:plugin_dir . '/repos/github.com/modsound/gips-vim/autoload/dict/quickref_vim.txt'
-
-
-
-" html
-call dein#add('mattn/emmet-vim')
-call dein#add('mattn/webapi-vim')
-call dein#add('tell-k/vim-browsereload-mac')
-call dein#add('hail2u/vim-css3-syntax')
-call dein#add('taichouchou2/html5.vim')
-call dein#add('kchmck/vim-coffee-script')
